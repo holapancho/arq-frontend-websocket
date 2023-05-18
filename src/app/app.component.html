@@ -1,18 +1,14 @@
 <style>
- 
+
 </style>
 
 
 <div class="content" role="main">
 
+    <google-map #myGoogleMap [options]="options">
+        <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
+            [label]="marker.label" [title]="marker.title" [options]="marker.options"
+            (mapClick)="openInfo(markerElem, marker.info)"></map-marker>
+    </google-map>
 
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>

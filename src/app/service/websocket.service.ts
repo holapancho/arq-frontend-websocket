@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { webSocket } from 'rxjs/webSocket';
-import { Posicion } from './posicion.model';
+import { Posicion } from '../model/posicion.model';
 
 @Injectable({
   providedIn: 'root'
