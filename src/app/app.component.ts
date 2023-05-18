@@ -11,10 +11,12 @@ export class AppComponent implements OnInit {
 
 
   constructor(private websocketService: WebsocketService) {
-    this.websocketService.connect();
+
   }
 
   ngOnInit(): void {
+    this.websocketService.connect();
+    this.websocketService.posicionStatus.subscribe(posicion => console.log(posicion))
   }
 
 
