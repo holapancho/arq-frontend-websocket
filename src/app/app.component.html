@@ -4,11 +4,10 @@
 
 
 <div class="content" role="main">
-
-    <google-map #myGoogleMap [options]="options">
-        <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
-            [label]="marker.label" [title]="marker.title" [options]="marker.options"
-            (mapClick)="openInfo(markerElem, marker.info)"></map-marker>
-    </google-map>
-
+    <div *ngIf="mapsLoaded | async">
+        <google-map #myGoogleMap [options]="options" [center]="ubicacion">
+            <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
+                [label]="marker.label" [title]="marker.title" [options]="marker.options"></map-marker>
+        </google-map>
+    </div>
     <router-outlet></router-outlet>
