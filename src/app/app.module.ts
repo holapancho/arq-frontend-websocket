@@ -4,9 +4,9 @@ import { GoogleMapsModule } from '@angular/google-maps'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,9 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

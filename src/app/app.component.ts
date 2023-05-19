@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
     zoom: 15
   };
 
+  ultimaUbicacion = "Cargando...";
+  ultimaActualizacion = "Cargando...";
+
   constructor(private httpClient: HttpClient, private websocketService: WebsocketService) {
     this.mapsLoaded = httpClient
       .jsonp(
@@ -51,8 +54,6 @@ export class AppComponent implements OnInit {
     };
     this.markers.push({
       position,
-      title: 'Marker title ',
-      info: 'Marker info ',
       options: {
         animation: google.maps.Animation.BOUNCE,
       },
@@ -60,7 +61,8 @@ export class AppComponent implements OnInit {
     if (this.markers.length > 1) {
       this.markers.shift();
     }
-    this.ubicacion = position;
+    this.ultimaUbicacion = `Ultima ubicación: Latitud ${position.lat} - Longitud ${position.lng}`;
+    this.ultimaActualizacion = `Ultima actualizacion: ${new Date().toLocaleString()}`;
   }
 
 }

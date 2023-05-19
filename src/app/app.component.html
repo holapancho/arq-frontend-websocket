@@ -1,13 +1,28 @@
-<style>
+<div style="height: 100vh; display: flex; justify-content: center; align-items: center; background-color: slateblue;">
 
-</style>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>Sistema de Monitoreo en Tiempo Real</mat-card-title>
+                <mat-card-subtitle>Visualización de una ubicación de interés al instante.</mat-card-subtitle>
+            </mat-card-title-group>
+
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngIf="mapsLoaded | async">
+                <google-map #myGoogleMap [options]="options" [center]="ubicacion">
+                    <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
+                        [options]="marker.options"></map-marker>
+                </google-map>
+            </div>
+            <p></p>
+            <p>{{ultimaUbicacion}}</p>
+            <p>{{ultimaActualizacion}}</p>
+            <p></p>
+        </mat-card-content>
+        <mat-card-footer></mat-card-footer>
+    </mat-card>
+</div>
 
 
-<div class="content" role="main">
-    <div *ngIf="mapsLoaded | async">
-        <google-map #myGoogleMap [options]="options" [center]="ubicacion">
-            <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
-                [label]="marker.label" [title]="marker.title" [options]="marker.options"></map-marker>
-        </google-map>
-    </div>
-    <router-outlet></router-outlet>
+<router-outlet></router-outlet>
