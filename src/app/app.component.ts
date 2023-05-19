@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
     if (this.markers.length > 1) {
       this.markers.shift();
     }
+    this.ubicacion = position;
     this.ultimaUbicacion = `Ultima ubicación: Latitud ${position.lat} - Longitud ${position.lng}`;
     this.ultimaActualizacion = `Ultima actualizacion: ${new Date().toLocaleString()}`;
   }
